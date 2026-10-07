@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para ti...</title>
+  <title>Para Flor Aisslin...</title>
   
-  <!-- Favicon de Flor generado dinámicamente -->
+  <!-- Favicon de Flor -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,13 @@
   
   <style>
     :root {
-      --bg: #0b0d12;
-      --card-bg: rgba(18, 22, 32, 0.75);
-      --accent: #d4a373;
-      --accent-soft: rgba(212, 163, 115, 0.12);
-      --text-main: #f8fafc;
-      --text-muted: #a1a1aa;
-      --gold: #ebd0b3;
+      --bg: #110e10;
+      --card-bg: rgba(22, 17, 19, 0.85);
+      --accent: #e8b4b8;
+      --accent-soft: rgba(232, 180, 184, 0.15);
+      --text-main: #fdfbfb;
+      --text-muted: #b8a9ab;
+      --gold: #dfb28b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,27 +39,26 @@
       overflow-y: auto;
     }
 
-    /* Animación de luciérnagas de fondo */
+    /* Atmósfera cálida */
     .firefly {
       position: fixed;
-      background: var(--gold);
+      background: var(--accent);
       border-radius: 50%;
       pointer-events: none;
       opacity: 0;
       z-index: 0;
-      box-shadow: 0 0 6px 2px rgba(235, 208, 179, 0.4);
-      animation: floatUp 15s infinite linear, blink 4s infinite ease-in-out;
+      box-shadow: 0 0 8px 2px rgba(232, 180, 184, 0.5);
+      animation: floatUp 15s infinite linear, blink 5s infinite ease-in-out;
     }
 
     @keyframes floatUp {
       0% { transform: translateY(100vh) scale(0); }
-      50% { transform: translateY(50vh) scale(1); }
+      50% { transform: translateY(50vh) scale(1.2); }
       100% { transform: translateY(-10vh) scale(0); }
     }
-
     @keyframes blink {
       0%, 100% { opacity: 0; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.7; }
     }
 
     .glow {
@@ -67,8 +66,8 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 163, 115, 0.12) 0%, rgba(11, 13, 18, 0) 70%);
-      top: 10%;
+      background: radial-gradient(circle, rgba(232, 180, 184, 0.12) 0%, rgba(17, 14, 16, 0) 70%);
+      top: 15%;
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
@@ -79,77 +78,74 @@
       width: 100%;
       max-width: 640px;
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 28px;
-      padding: 48px 36px;
+      padding: 50px 36px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8);
       text-align: center;
     }
 
-    /* PANTALLA DE INICIO */
+    /* PANTALLA DE INICIO: LA FLOR */
     #intro-screen {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 350px;
+      min-height: 400px;
       transition: opacity 0.8s ease, transform 0.8s ease;
       will-change: opacity, transform;
     }
 
+    .flower-intro {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 24px;
+      animation: spinSlow 30s linear infinite;
+    }
+    @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
     .intro-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: var(--gold);
-      margin-bottom: 16px;
+      font-size: 3.2rem;
+      color: var(--accent);
+      margin-bottom: 12px;
       font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .intro-text {
       color: var(--text-muted);
       font-size: 1.05rem;
       margin-bottom: 40px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     /* Botones Interactivos */
     .action-btn {
-      background: linear-gradient(135deg, #d4a373 0%, #b88358 100%);
-      color: #0b0d12;
+      background: linear-gradient(135deg, #e8b4b8 0%, #c88a8f 100%);
+      color: #110e10;
       font-weight: 600;
       font-size: 0.95rem;
-      letter-spacing: 1px;
-      padding: 16px 36px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 16px 38px;
       border-radius: 50px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      gap: 12px;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       cursor: pointer;
       border: none;
-      box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
+      box-shadow: 0 6px 20px rgba(232, 180, 184, 0.25);
     }
 
     .action-btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(212, 163, 115, 0.4);
-    }
-
-    /* Efecto de latido sutil para el botón final */
-    .pulse-btn {
-      animation: heartbeat 2.5s infinite;
-    }
-
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      15% { transform: scale(1.03); }
-      30% { transform: scale(1); }
-      45% { transform: scale(1.03); }
-      60%, 100% { transform: scale(1); }
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(232, 180, 184, 0.45);
     }
 
     /* CONTENIDO PRINCIPAL */
@@ -164,11 +160,11 @@
     .badge {
       display: inline-block;
       font-size: 0.75rem;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 8px 18px;
+      color: var(--gold);
+      background: rgba(223, 178, 139, 0.15);
+      padding: 8px 20px;
       border-radius: 50px;
       margin-bottom: 24px;
       font-weight: 500;
@@ -176,7 +172,7 @@
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 600;
       letter-spacing: 0.5px;
       margin-bottom: 16px;
@@ -187,33 +183,31 @@
       font-size: 1rem;
       color: var(--text-muted);
       line-height: 1.8;
-      margin-bottom: 32px;
+      margin-bottom: 35px;
       font-weight: 300;
     }
 
     /* Reproductor elegante */
     .music-container {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       padding: 18px;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       text-align: left;
       transition: background 0.3s ease;
     }
     
-    .music-container:hover { background: rgba(255, 255, 255, 0.05); }
-
     .music-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
     .music-icon {
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       border-radius: 50%;
       background: var(--accent-soft);
       display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: 1rem;
+      color: var(--accent); font-size: 1.1rem;
     }
-    .music-text h4 { font-size: 0.9rem; font-weight: 500; color: #fff; }
-    .music-text p { font-size: 0.75rem; color: var(--text-muted); }
+    .music-text h4 { font-size: 0.95rem; font-weight: 500; color: #fff; letter-spacing: 0.5px; }
+    .music-text p { font-size: 0.8rem; color: var(--text-muted); }
 
     .video-wrapper {
       position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;
@@ -222,56 +216,66 @@
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
     }
 
-    /* Cards escalonadas */
-    .sections { display: flex; flex-direction: column; gap: 20px; text-align: left; margin-bottom: 30px; }
+    /* Mensajes */
+    .sections { display: flex; flex-direction: column; gap: 24px; text-align: left; margin-bottom: 35px; }
     .card {
-      background: rgba(255, 255, 255, 0.02);
+      background: transparent;
       border-left: 2px solid var(--accent);
-      padding: 22px 26px;
-      border-radius: 0 16px 16px 0;
+      padding: 10px 20px;
       transition: all 0.3s ease;
     }
-    .card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      transform: translateX(5px);
+    .card h3 { 
+      font-size: 0.85rem; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      color: var(--gold); 
+      margin-bottom: 12px; 
+      font-weight: 500; 
     }
-    .card h3 { font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500; }
-    .card p { font-size: 0.95rem; line-height: 1.8; color: #e2e8f0; font-weight: 300; }
+    .card p { 
+      font-size: 1.05rem; 
+      line-height: 1.8; 
+      color: #eaeaea; 
+      font-weight: 300; 
+    }
 
-    /* Contenedor del Gatito SVG */
-    .cat-container {
-      margin: 30px 0 15px 0;
-      opacity: 0.8;
+    /* LOS DOS GATITOS (Trazo minimalista elegante) */
+    .cats-container {
+      margin: 40px 0 25px 0;
+      opacity: 0.9;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 10px;
     }
-    .cat-svg {
-      width: 50px;
-      height: 50px;
+    .two-cats-svg {
+      width: 70px;
+      height: auto;
       fill: none;
       stroke: var(--accent);
-      stroke-width: 1.5;
+      stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
-      transition: transform 0.4s ease;
+      transition: transform 0.4s ease, stroke 0.4s ease;
     }
-    .cat-container:hover .cat-svg {
-      transform: scale(1.1) rotate(5deg);
+    .cats-container:hover .two-cats-svg {
+      transform: scale(1.08);
       stroke: var(--gold);
     }
 
     /* Nota final */
-    .interaction-box { padding-top: 10px; }
+    .interaction-box { padding-top: 20px; }
     #secret-note {
       display: none;
-      margin-top: 30px;
-      padding-top: 30px;
+      margin-top: 35px;
+      padding-top: 35px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-style: italic;
-      color: var(--gold);
-      line-height: 1.6;
+      color: var(--accent);
+      line-height: 1.5;
       animation: noteFade 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
     }
 
@@ -283,37 +287,48 @@
 </head>
 <body>
 
-  <!-- Elementos de fondo (resplandor y luciérnagas se generan con JS) -->
   <div class="glow"></div>
   <div id="particles-container"></div>
 
   <main class="container">
     
-    <!-- PANTALLA DE INICIO MISTERIOSA -->
+    <!-- PANTALLA DE INICIO (Con diseño floral) -->
     <div id="intro-screen">
-      <h2 class="intro-title">Hola, preciosa... 🌸</h2>
+      <!-- Flor de Loto Geométrica -->
+      <svg class="flower-intro" viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="1.5">
+        <circle cx="50" cy="50" r="6" fill="var(--accent-soft)"/>
+        <ellipse cx="50" cy="22" rx="6" ry="20" />
+        <ellipse cx="50" cy="78" rx="6" ry="20" />
+        <ellipse cx="22" cy="50" rx="20" ry="6" />
+        <ellipse cx="78" cy="50" rx="20" ry="6" />
+        <ellipse cx="30" cy="30" rx="20" ry="6" transform="rotate(45 30 30)" />
+        <ellipse cx="70" cy="70" rx="20" ry="6" transform="rotate(45 70 70)" />
+        <ellipse cx="30" cy="70" rx="20" ry="6" transform="rotate(-45 30 70)" />
+        <ellipse cx="70" cy="30" rx="20" ry="6" transform="rotate(-45 70 30)" />
+      </svg>
+      
+      <h2 class="intro-title">Hola, Flor Aisslin...</h2>
       <p class="intro-text">Escribí algo pensando en ti.<br>Tómate un momento tranquilo para leerlo.</p>
       <button class="action-btn" id="startBtn">
-        Abrir el mensaje
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Abrir mensaje
       </button>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO PRINCIPAL DE LA CARTA -->
     <div id="main-content">
-      <span class="badge">Un recordatorio para ti</span>
-      <h1>Para Aisslin</h1>
+      <span class="badge">Un recordatorio</span>
+      <h1>Para mi preciosa niña</h1>
       <p class="lead">
-        Hay cosas que nacen del corazón y no necesitan un día festivo para decirse en voz alta...
+        Hay cosas que nacen de lo más profundo del corazón y no necesitan una fecha especial para decirse en voz alta...
       </p>
 
-      <!-- Reproductor -->
+      <!-- Reproductor Lana Del Rey -->
       <div class="music-container">
         <div class="music-header">
           <div class="music-icon">♫</div>
           <div class="music-text">
             <h4>Say Yes To Heaven — Lana Del Rey</h4>
-            <p>Ponle play para leer esto con calma</p>
+            <p>Ponle play para acompañar este momento</p>
           </div>
         </div>
         <div class="video-wrapper">
@@ -329,44 +344,48 @@
       <!-- El mensaje profundo -->
       <div class="sections">
         <div class="card">
-          <h3>Tu determinación y fuerza</h3>
+          <h3>Tu fuerza y dedicación</h3>
           <p>
-            Amo que seas una mujer que lucha por sus metas, que se esfuerza y que es fuerte y dedicada en todo lo que se propone. Verte avanzar y conquistar tus sueños me llena de una admiración inmensa.
+            Amo profundamente que seas una mujer que lucha por sus metas, que se esfuerza todos los días. Eres fuerte, decidida y dedicada en todo lo que quieres. Verte crecer y conquistar tus sueños me llena de una admiración infinita.
           </p>
         </div>
 
         <div class="card">
-          <h3>La niña de mis sueños</h3>
+          <h3>La niña con la que soñaba</h3>
           <p>
-            Eres una mujer sumamente bonita y linda que me encanta por completo. Eres exactamente con quien siempre había soñado por lo increíble, tierna y maravillosa que eres.
+            A mis ojos, eres una mujer sumamente hermosa. Eres linda en cada detalle, me encantas por completo y eres exactamente la mujer con la que siempre había soñado por lo increíble, pura y maravillosa que eres.
           </p>
         </div>
 
         <div class="card">
-          <h3>Mi promesa y mi lugar</h3>
+          <h3>Mi promesa</h3>
           <p>
-            Gracias por abrirme tu corazón y por regalarme tu confianza. Me haces inmensamente feliz y quiero que sepas que cuidaré de ti y de lo que estamos construyendo como el gran tesoro que eres.
+            Me haces inmensamente feliz. Gracias por abrirme tu corazón y por regalarme la luz de tu confianza. Quiero que sepas que cuidaré de ti con toda mi alma, como el gran tesoro que eres para mí.
           </p>
         </div>
       </div>
 
-      <!-- Gatito durmiendo (seguridad y apego) -->
-      <div class="cat-container" title="Un guardián para tus sueños">
-        <svg class="cat-svg" viewBox="0 0 24 24">
-          <!-- Orejas y cabeza -->
-          <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 5.56-2.9a.5.5 0 0 1 .59.49c-.06.63-.35 3.08-1.57 4.93A7.96 7.96 0 0 1 20 13c0 4.42-3.58 8-8 8s-8-3.58-8-8c0-2.04.77-3.9 2.05-5.3-.87-1.42-1.2-3.54-1.25-4.14a.5.5 0 0 1 .54-.56c.58.07 3.84.87 5.6 2.87.65-.17 1.33-.26 2.06-.26z"/>
-          <!-- Ojos cerrados (durmiendo plácidamente) -->
-          <path d="M8 14q1.5 1.5 3 0M13 14q1.5 1.5 3 0"/>
+      <!-- LOS DOS GATITOS (Acompañantes sentados juntos) -->
+      <div class="cats-container" title="Para ti y tus dos pequeños">
+        <svg class="two-cats-svg" viewBox="0 0 100 60">
+          <!-- Gatito 1 (Izquierda) -->
+          <path d="M 25,55 C 25,35 15,30 25,25 C 25,18 20,12 20,12 L 28,15 C 32,13 38,13 42,15 L 50,12 C 50,12 45,18 45,25 C 55,30 45,35 45,55 Z" />
+          <!-- Gatito 2 (Derecha - Ligeramente más pequeño) -->
+          <path d="M 52,55 C 52,40 45,35 52,30 C 52,24 48,18 48,18 L 54,21 C 58,19 62,19 66,21 L 72,18 C 72,18 68,24 68,30 C 75,35 68,40 68,55 Z" />
+          <!-- Cola Gatito 1 -->
+          <path d="M 28,55 C 10,55 5,40 15,35" />
+          <!-- Cola Gatito 2 formando corazón con la otra -->
+          <path d="M 65,55 C 80,55 85,40 75,35" />
         </svg>
       </div>
 
+      <!-- Botón final -->
       <div class="interaction-box">
-        <button class="action-btn pulse-btn" id="revealBtn">
-          Toca para abrir la última nota
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <button class="action-btn" id="revealBtn" style="margin-top: 10px;">
+          Toca para la última nota
         </button>
         <div id="secret-note">
-          «Te amo con todo mi ser, Aisslin. Siempre estaré aquí para ti.»
+          «Te amo con todo mi ser. Siempre estaré entregado y comprometido contigo.»
         </div>
       </div>
     </div>
@@ -374,8 +393,8 @@
   </main>
 
   <script>
-    // 1. Generador de Luciérnagas (Frontend Senior touch)
-    const particleCount = 12;
+    // 1. Luciérnagas (Tonos oro rosa)
+    const particleCount = 15;
     const container = document.getElementById('particles-container');
     for(let i=0; i<particleCount; i++) {
       let particle = document.createElement('div');
@@ -383,12 +402,12 @@
       particle.style.left = Math.random() * 100 + 'vw';
       particle.style.width = Math.random() * 4 + 2 + 'px';
       particle.style.height = particle.style.width;
-      particle.style.animationDelay = (Math.random() * 10) + 's';
-      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particle.style.animationDelay = (Math.random() * 8) + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
       container.appendChild(particle);
     }
 
-    // 2. Transición suave de la Portada a la Carta
+    // 2. Transición de la Portada a la Carta
     document.getElementById('startBtn').addEventListener('click', function() {
       const introScreen = document.getElementById('intro-screen');
       const mainContent = document.getElementById('main-content');
@@ -399,25 +418,22 @@
       setTimeout(() => {
         introScreen.style.display = 'none';
         mainContent.style.display = 'block';
-        
-        // Forzamos un reflow del navegador para que la animación CSS aplique correctamente
         void mainContent.offsetWidth; 
         
         mainContent.style.opacity = '1';
         mainContent.style.transform = 'translateY(0)';
-      }, 600); // 600ms para un fundido elegante
+      }, 700);
     });
 
-    // 3. Revelar el corazón final
+    // 3. Revelar el mensaje final
     document.getElementById('revealBtn').addEventListener('click', function() {
       const note = document.getElementById('secret-note');
       note.style.display = 'block';
       this.style.display = 'none';
       
-      // Auto-scroll suave para asegurar que lea la nota final
       setTimeout(() => {
-        note.scrollIntoView({ behavior: 'smooth', block: 'end' });
-      }, 100);
+        note.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 150);
     });
   </script>
 </body>
