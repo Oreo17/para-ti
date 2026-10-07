@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f1115;
-      --card-bg: rgba(22, 26, 34, 0.75);
-      --accent: #d4a373;
-      --accent-soft: rgba(212, 163, 115, 0.15);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --gold: #e0b98f;
+      --bg: #0b0d11;
+      --card-bg: rgba(18, 22, 30, 0.82);
+      --accent: #d8a27a;
+      --accent-soft: rgba(216, 162, 122, 0.12);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --gold: #ebd0b3;
     }
 
     * {
@@ -32,19 +32,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 24px 16px;
+      padding: 30px 16px;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Fondo ambiental suave */
+    /* Resplandor ambiental de fondo */
     .glow {
       position: fixed;
-      width: 420px;
-      height: 420px;
+      width: 480px;
+      height: 480px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 163, 115, 0.18) 0%, rgba(15, 17, 21, 0) 70%);
-      top: 10%;
+      background: radial-gradient(circle, rgba(216, 162, 122, 0.16) 0%, rgba(11, 13, 17, 0) 70%);
+      top: 15%;
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
@@ -53,159 +53,156 @@
 
     .container {
       width: 100%;
-      max-width: 580px;
+      max-width: 620px;
       background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 40px 32px;
+      border-radius: 24px;
+      padding: 42px 30px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
       text-align: center;
     }
 
     .badge {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-soft);
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 50px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       font-weight: 500;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: 2.7rem;
       font-weight: 600;
       letter-spacing: 0.5px;
       margin-bottom: 12px;
       color: #ffffff;
     }
 
-    .subtitle {
-      font-size: 0.95rem;
+    .lead {
+      font-size: 0.98rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 30px;
+      line-height: 1.7;
+      margin-bottom: 28px;
       font-weight: 300;
     }
 
-    /* Caja de audio sutil */
-    .song-pill {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    /* Módulo de música de YouTube */
+    .music-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 34px;
       text-align: left;
     }
 
-    .play-btn {
-      width: 38px;
-      height: 38px;
+    .music-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .music-icon {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: var(--accent);
-      border: none;
+      background: var(--accent-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
+      color: var(--accent);
+      font-size: 0.9rem;
     }
 
-    .play-btn:hover {
-      transform: scale(1.06);
-    }
-
-    .play-btn svg {
-      fill: #0f1115;
-      width: 14px;
-      height: 14px;
-      margin-left: 2px;
-    }
-
-    .song-info h4 {
-      font-size: 0.85rem;
+    .music-text h4 {
+      font-size: 0.88rem;
       font-weight: 500;
       color: #fff;
     }
 
-    .song-info p {
+    .music-text p {
       font-size: 0.75rem;
       color: var(--text-muted);
     }
 
-    /* Carta interactiva por fragmentos */
-    .fragments {
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Tarjetas de admiración y entrega */
+    .sections {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
       text-align: left;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.025);
       border-left: 2px solid var(--accent);
-      padding: 16px 20px;
-      border-radius: 0 12px 12px 0;
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeIn 0.8s forwards;
+      padding: 18px 22px;
+      border-radius: 0 14px 14px 0;
+      transition: background 0.2s ease;
     }
 
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.5s; }
-    .card:nth-child(3) { animation-delay: 0.8s; }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .card:hover {
+      background: rgba(255, 255, 255, 0.045);
     }
 
     .card h3 {
-      font-size: 0.85rem;
-      letter-spacing: 1px;
+      font-size: 0.84rem;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 500;
     }
 
     .card p {
-      font-size: 0.92rem;
-      line-height: 1.6;
+      font-size: 0.94rem;
+      line-height: 1.7;
       color: #e2e8f0;
       font-weight: 300;
     }
 
-    /* Interacción final */
+    /* Nota final desplegable */
     .interaction-box {
-      margin-top: 24px;
-      padding-top: 24px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .action-btn {
-      background: linear-gradient(135deg, #d4a373 0%, #b88656 100%);
-      color: #0f1115;
+      background: linear-gradient(135deg, #d8a27a 0%, #b88358 100%);
+      color: #0b0d11;
       font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.8px;
-      text-decoration: none;
-      padding: 14px 28px;
+      font-size: 0.88rem;
+      letter-spacing: 1px;
+      padding: 14px 30px;
       border-radius: 50px;
       display: inline-block;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -215,23 +212,23 @@
 
     .action-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
+      box-shadow: 0 8px 24px rgba(216, 162, 122, 0.35);
     }
 
     #secret-note {
       display: none;
-      margin-top: 22px;
+      margin-top: 24px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-style: italic;
       color: var(--gold);
-      line-height: 1.5;
-      animation: noteFade 0.7s forwards;
+      line-height: 1.6;
+      animation: noteFade 0.8s ease forwards;
     }
 
     @keyframes noteFade {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -240,92 +237,64 @@
   <div class="glow"></div>
 
   <main class="container">
-    <span class="badge">Un recordatorio no planeado</span>
+    <span class="badge">Un detalle para tu día</span>
     <h1>Para Aisslin</h1>
-    <p class="subtitle">
-      Dicen que las mejores historias comienzan sin aviso, a veces a través de una simple canción y una casualidad a la que siempre le estaré agradecido.
+    <p class="lead">
+      No hace falta un motivo especial en el calendario para recordarte lo que causas en mí y lo profundamente agradecido que estoy por tenerte en mi vida.
     </p>
 
-    <!-- Puedes personalizar el nombre de la canción que inició todo -->
-    <div class="song-pill">
-      <button class="play-btn" id="soundBtn" title="Ambiente sutil">
-        <svg viewBox="0 0 24 24"><polygon points="6 4 19 12 6 20 6 4"></polygon></svg>
-      </button>
-      <div class="song-info">
-        <h4>Nuestra casualidad</h4>
-        <p>Toca para escuchar una armonía sutil</p>
+    <!-- Reproductor de Lana Del Rey embebido de YouTube -->
+    <div class="music-container">
+      <div class="music-header">
+        <div class="music-icon">♫</div>
+        <div class="music-text">
+          <h4>Young and Beautiful — Lana Del Rey</h4>
+          <p>Dale play para acompañar este momento</p>
+        </div>
+      </div>
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/o_1aF54DO60?rel=0" 
+          title="Lana Del Rey - Young and Beautiful" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
 
-    <div class="fragments">
+    <!-- Fragmentos que transmiten la esencia sin quemar la carta final -->
+    <div class="sections">
       <div class="card">
-        <h3>El Reencuentro</h3>
+        <h3>Tu brillo y mi orgullo</h3>
         <p>
-          Reencontrarme contigo años después ha sido uno de esos regalos raros y hermosos que da la vida. Cada conversación me ha confirmado lo afortunado que soy de tenerte cerca.
+          Ver cómo luchas por tus metas, cómo cumples tus sueños y la pasión con la que vives me despierta una admiración infinita. Eres una mujer brillante, inteligente y con una luz propia que no deja de inspirarme todos los días.
         </p>
       </div>
 
       <div class="card">
-        <h3>Tu Brillo</h3>
+        <h3>La niña más hermosa</h3>
         <p>
-          Me llena de orgullo verte luchar por lo que sueñas y alcanzar todo lo que te propones. Eres admirable en cada paso que das, y me encanta ver cómo iluminas todo a tu alrededor.
+          Para mí no existe nadie con tu mirada, ni con esa manera tan tierna de ponerte nerviosa cuando te miro fijamente. Eres la niña de mis sueños y cada detalle tuyo me confirma lo afortunado que soy de haberme reencontrado contigo.
         </p>
       </div>
 
       <div class="card">
-        <h3>Nuestros Detalles</h3>
+        <h3>Mi entrega hacia ti</h3>
         <p>
-          Amo la forma en que te pones nerviosa cuando te miro fijo a los ojos, la complicidad con la que nos entendemos y la paz que siento con solo tomar tu mano.
+          Quiero que siempre recuerdes que cuentas conmigo. En los días brillantes y en los momentos difíciles, mi apoyo, mi cuidado y mi compromiso están contigo por completo.
         </p>
       </div>
     </div>
 
     <div class="interaction-box">
-      <button class="action-btn" id="revealBtn">Abrir nota final</button>
+      <button class="action-btn" id="revealBtn">Toca para leer un último recordatorio</button>
       <div id="secret-note">
-        «Solo quería recordarte que te amo con todo mi ser, que estoy aquí para ti en cada momento y que me haces inmensamente feliz.»
+        «Te amo con todo mi ser, Aisslin. Gracias por hacerme inmensamente feliz con solo existir.»
       </div>
     </div>
   </main>
 
   <script>
-    // Generador de tono acústico relajante con Web Audio API (sin audios externos caídos)
-    let audioCtx = null;
-    let isPlaying = false;
-    let masterGain = null;
-
-    document.getElementById('soundBtn').addEventListener('click', function() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        masterGain = audioCtx.createGain();
-        masterGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        masterGain.connect(audioCtx.destination);
-
-        // Acorde cálido y ambiental (Do sostenido mayor suspendido)
-        const notes = [277.18, 329.63, 415.30, 554.37];
-        notes.forEach(freq => {
-          const osc = audioCtx.createOscillator();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-          osc.connect(masterGain);
-          osc.start();
-        });
-        isPlaying = true;
-        this.innerHTML = '<span style="color:#0f1115; font-size:12px; font-weight:bold;">ll</span>';
-      } else {
-        if (isPlaying) {
-          audioCtx.suspend();
-          isPlaying = false;
-          this.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#0f1115; width:14px; height:14px; margin-left:2px;"><polygon points="6 4 19 12 6 20 6 4"></polygon></svg>';
-        } else {
-          audioCtx.resume();
-          isPlaying = true;
-          this.innerHTML = '<span style="color:#0f1115; font-size:12px; font-weight:bold;">ll</span>';
-        }
-      }
-    });
-
-    // Revelar mensaje final
     document.getElementById('revealBtn').addEventListener('click', function() {
       const note = document.getElementById('secret-note');
       note.style.display = 'block';
