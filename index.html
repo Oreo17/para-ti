@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Aisslin</title>
+  <title>Para ti...</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -64,6 +64,60 @@
       z-index: 1;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
       text-align: center;
+      overflow: hidden;
+    }
+
+    /* === PANTALLA DE INICIO (PORTADA) === */
+    #intro-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .intro-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    /* Botones globales */
+    .action-btn {
+      background: linear-gradient(135deg, #d4a373 0%, #b88358 100%);
+      color: #0b0d12;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      padding: 15px 32px;
+      border-radius: 50px;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.35);
+    }
+
+    /* === CONTENIDO PRINCIPAL OCULTO INICIALMENTE === */
+    #main-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
     .badge {
@@ -138,7 +192,7 @@
 
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 10px;
@@ -196,25 +250,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .action-btn {
-      background: linear-gradient(135deg, #d4a373 0%, #b88358 100%);
-      color: #0b0d12;
-      font-weight: 600;
-      font-size: 0.88rem;
-      letter-spacing: 1px;
-      padding: 14px 30px;
-      border-radius: 50px;
-      display: inline-block;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.35);
-    }
-
     #secret-note {
       display: none;
       margin-top: 24px;
@@ -237,64 +272,99 @@
   <div class="glow"></div>
 
   <main class="container">
-    <span class="badge">Un recordatorio para ti</span>
-    <h1>Para Aisslin</h1>
-    <p class="lead">
-      Hay cosas que nacen del corazón y no necesitan un día festivo para decirse en voz alta...
-    </p>
+    
+    <!-- PANTALLA DE INICIO -->
+    <div id="intro-screen">
+      <h2 class="intro-title">Hola, preciosa...</h2>
+      <p class="intro-text">Escribí algo pensando en ti.<br>Tómate un momento tranquilo para leerlo.</p>
+      <button class="action-btn" id="startBtn">Abrir el mensaje</button>
+    </div>
 
-    <!-- Reproductor de Lana Del Rey: Say Yes To Heaven -->
-    <div class="music-container">
-      <div class="music-header">
-        <div class="music-icon">♫</div>
-        <div class="music-text">
-          <h4>Say Yes To Heaven — Lana Del Rey</h4>
-          <p>Ponle play para leer esto con calma</p>
+    <!-- CONTENIDO PRINCIPAL OCULTO -->
+    <div id="main-content">
+      <span class="badge">Un recordatorio para ti</span>
+      <h1>Para Aisslin</h1>
+      <p class="lead">
+        Hay cosas que nacen del corazón y no necesitan un día festivo para decirse en voz alta...
+      </p>
+
+      <!-- Reproductor de Lana Del Rey: Say Yes To Heaven -->
+      <div class="music-container">
+        <div class="music-header">
+          <div class="music-icon">♫</div>
+          <div class="music-text">
+            <h4>Say Yes To Heaven — Lana Del Rey</h4>
+            <p>Ponle play para leer esto con calma</p>
+          </div>
+        </div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/MiAoetOXKcY?rel=0" 
+            title="Lana Del Rey - Say Yes To Heaven" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
-      <div class="video-wrapper">
-        <iframe 
-          src="https://www.youtube-nocookie.com/embed/MiAoetOXKcY?rel=0" 
-          title="Lana Del Rey - Say Yes To Heaven" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+
+      <!-- Bloques con tus sentimientos -->
+      <div class="sections">
+        <div class="card">
+          <h3>Tu determinación y fuerza</h3>
+          <p>
+            Amo que seas una mujer que lucha por sus metas, que se esfuerza y que es fuerte y dedicada en todo lo que se propone. Verte avanzar y conquistar tus sueños me llena de una admiración inmensa.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>La niña de mis sueños</h3>
+          <p>
+            Eres una mujer sumamente bonita y linda que me encanta por completo. Eres exactamente con quien siempre había soñado por lo increíble, tierna y maravillosa que eres.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mi promesa y mi lugar</h3>
+          <p>
+            Gracias por abrirme tu corazón y por regalarme tu confianza. Me haces inmensamente feliz y quiero que sepas que cuidaré de ti y de lo que estamos construyendo como el gran tesoro que eres.
+          </p>
+        </div>
+      </div>
+
+      <div class="interaction-box">
+        <button class="action-btn" id="revealBtn">Toca para abrir la última nota</button>
+        <div id="secret-note">
+          «Te amo con todo mi ser, Aisslin. Siempre estaré aquí para ti.»
+        </div>
       </div>
     </div>
 
-    <!-- Bloques con tus sentimientos y palabras clave -->
-    <div class="sections">
-      <div class="card">
-        <h3>Tu determinación y fuerza</h3>
-        <p>
-          Amo que seas una mujer que lucha por sus metas, que se esfuerza y que es fuerte y dedicada en todo lo que se propone. Verte avanzar y conquistar tus sueños me llena de una admiración inmensa.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>La niña de mis sueños</h3>
-        <p>
-          Eres una mujer sumamente bonita y linda que me encanta por completo. Eres exactamente con quien siempre había soñado por lo increíble, tierna y maravillosa que eres.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Mi promesa y mi lugar</h3>
-        <p>
-          Gracias por abrirme tu corazón y por regalarme tu confianza. Me haces inmensamente feliz y quiero que sepas que cuidaré de ti y de lo que estamos construyendo como el gran tesoro que eres.
-        </p>
-      </div>
-    </div>
-
-    <div class="interaction-box">
-      <button class="action-btn" id="revealBtn">Toca para abrir la última nota</button>
-      <div id="secret-note">
-        «Te amo con todo mi ser, Aisslin. Siempre estaré aquí para ti.»
-      </div>
-    </div>
   </main>
 
   <script>
+    // Lógica para quitar la portada y mostrar la carta
+    document.getElementById('startBtn').addEventListener('click', function() {
+      const introScreen = document.getElementById('intro-screen');
+      const mainContent = document.getElementById('main-content');
+      
+      // Animación de salida de la portada
+      introScreen.style.opacity = '0';
+      introScreen.style.transform = 'translateY(-20px)';
+      
+      // Esperar a que termine de desvanecerse la portada (400ms) y mostrar el contenido
+      setTimeout(() => {
+        introScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+        
+        // Un pequeño delay para que el navegador registre el display:block antes de aplicar opacity
+        setTimeout(() => {
+          mainContent.style.opacity = '1';
+          mainContent.style.transform = 'translateY(0)';
+        }, 50);
+      }, 400);
+    });
+
+    // Lógica del mensaje secreto final
     document.getElementById('revealBtn').addEventListener('click', function() {
       const note = document.getElementById('secret-note');
       note.style.display = 'block';
